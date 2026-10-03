@@ -1,0 +1,76 @@
+<Page
+    x:Class="Astra.App.Pages.VoicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="using:Astra.App.Controls">
+    <ScrollViewer>
+        <StackPanel Spacing="4" Padding="36,4,36,36" MaxWidth="940" HorizontalAlignment="Stretch">
+            <TextBlock Text="Voice" Style="{StaticResource PageTitleStyle}" />
+            <TextBlock Text="How Astra hears you and how it talks back." Style="{StaticResource PageSubtitleStyle}" />
+
+            <TextBlock Text="Listening" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Microphone" Description="Input device for the wake word and voice commands." Glyph="&#xE720;">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <ProgressBar x:Name="MicLevel" Width="70" Maximum="1" VerticalAlignment="Center" />
+                    <Button x:Name="MicTestBtn" Content="Test" Click="MicTest_Click" />
+                    <ComboBox x:Name="MicBox" Width="290" />
+                </StackPanel>
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Activation" Description="Wake word listens continuously for its name; push-to-talk only listens while you hold the hotkey." Glyph="&#xE768;">
+                <ComboBox x:Name="ModeBox" Width="240" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard x:Name="WakeCard" Header="Wake word" Description="Astra only reacts to commands that start with this word." Glyph="&#xE8D4;">
+                <TextBox x:Name="WakeBox" Width="240" MaxLength="24" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Push-to-talk hotkey" Description="Hold to speak, release to send. Works in both activation modes." Glyph="&#xE765;">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBox x:Name="PttBox" Width="190" IsReadOnly="True" />
+                    <Button Content="Change…" Click="ChangeKey_Click" />
+                </StackPanel>
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Speech recognition" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Speech model" x:Name="ModelCard" Glyph="&#xF12E;"
+                              Description="Runs on this PC with Whisper; your voice never leaves it. Download once.">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <ProgressBar x:Name="DownloadBar" Width="110" Maximum="1" VerticalAlignment="Center" Visibility="Collapsed" />
+                    <Button x:Name="DownloadBtn" Click="Download_Click" />
+                    <ComboBox x:Name="ModelBox" Width="270" />
+                </StackPanel>
+            </ctl:SettingsCard>
+            <InfoBar x:Name="ModelBar" IsOpen="False" IsClosable="False" Margin="0,4,0,0" />
+            <ctl:SettingsCard Header="Recognition language" Description="Auto understands Turkish and English and replies in the language you spoke." Glyph="&#xE775;">
+                <ComboBox x:Name="RecLangBox" Width="240" />
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Speaking" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Speak responses" Description="Read replies aloud." Glyph="&#xE767;">
+                <ToggleSwitch x:Name="SpeakToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Voice provider" Description="Windows voices run locally. OpenAI voices need your OpenAI key and send the reply text to OpenAI." Glyph="&#xE774;">
+                <ComboBox x:Name="TtsBox" Width="270" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Voice" Description="Astra switches to a Turkish or English voice automatically to match the reply language." Glyph="&#xE77B;">
+                <ComboBox x:Name="VoiceBox" Width="300" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Speed" Glyph="&#xEC4A;">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Slider x:Name="SpeedSlider" Width="200" Minimum="0.5" Maximum="2" StepFrequency="0.05" />
+                    <TextBlock x:Name="SpeedLabel" Width="48" VerticalAlignment="Center" />
+                </StackPanel>
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Volume" Glyph="&#xE767;">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Slider x:Name="VolumeSlider" Width="200" Minimum="0" Maximum="100" />
+                    <TextBlock x:Name="VolumeLabel" Width="48" VerticalAlignment="Center" />
+                </StackPanel>
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Reply language" Description="Auto answers in the language you spoke." Glyph="&#xE775;">
+                <ComboBox x:Name="LangBox" Width="240" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Test voice" Description="Plays a short sample with the settings above." Glyph="&#xE768;">
+                <Button x:Name="TestBtn" Content="Play sample" Click="Test_Click" Style="{StaticResource AccentButtonStyle}" />
+            </ctl:SettingsCard>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

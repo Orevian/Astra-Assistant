@@ -1,0 +1,36 @@
+<Page
+    x:Class="Astra.App.Pages.MemoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="using:Astra.App.Controls">
+    <ScrollViewer>
+        <StackPanel Spacing="4" Padding="36,4,36,36" MaxWidth="940" HorizontalAlignment="Stretch">
+            <TextBlock Text="Memory" Style="{StaticResource PageTitleStyle}" />
+            <TextBlock Text="What Astra remembers between requests and between sessions." Style="{StaticResource PageSubtitleStyle}" />
+
+            <TextBlock Text="Conversation" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Remember context" Description="Let Astra remember preferences you tell it. Turn off to start fresh every time." Glyph="&#xE9D9;">
+                <ToggleSwitch x:Name="EnabledToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Short-term context" Description="How many recent exchanges are sent along with a new request. Fewer means fewer tokens." Glyph="&#xE8F2;">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Slider x:Name="TurnsSlider" Width="200" Minimum="0" Maximum="20" />
+                    <TextBlock x:Name="TurnsLabel" Width="64" VerticalAlignment="Center" />
+                </StackPanel>
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Saved memories" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Add a memory" Description="Or just tell Astra “remember that…”. Passwords, keys and card numbers are never saved." Glyph="&#xE710;">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBox x:Name="NewBox" Width="300" PlaceholderText="e.g. My preferred browser is Avast Secure Browser" KeyDown="NewBox_KeyDown" />
+                    <Button Content="Add" Click="Add_Click" />
+                </StackPanel>
+            </ctl:SettingsCard>
+            <InfoBar x:Name="AddBar" IsOpen="False" IsClosable="False" Margin="0,4,0,0" />
+            <StackPanel x:Name="MemoryList" Spacing="4" />
+            <ctl:SettingsCard x:Name="ClearCard" Header="Forget everything" Description="Delete every saved memory." Glyph="&#xE74D;" Margin="0,12,0,0">
+                <Button Content="Clear all…" Click="Clear_Click" />
+            </ctl:SettingsCard>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

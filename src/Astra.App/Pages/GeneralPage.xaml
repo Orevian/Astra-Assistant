@@ -1,0 +1,42 @@
+<Page
+    x:Class="Astra.App.Pages.GeneralPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="using:Astra.App.Controls">
+    <ScrollViewer>
+        <StackPanel Spacing="4" Padding="36,4,36,36" MaxWidth="940" HorizontalAlignment="Stretch">
+            <TextBlock Text="General" Style="{StaticResource PageTitleStyle}" />
+            <TextBlock Text="Identity, startup behavior and app data." Style="{StaticResource PageSubtitleStyle}" />
+
+            <TextBlock Text="Assistant" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Assistant name" Description="How Astra refers to itself in replies and in the window." Glyph="&#xE77B;">
+                <TextBox x:Name="NameBox" Width="240" MaxLength="24" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Interface language" Description="Language of menus and settings. Voice replies are configured under Voice." Glyph="&#xE774;">
+                <ComboBox x:Name="LangBox" Width="240" />
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Startup" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Start with Windows" Description="Launch Astra in the background when you sign in." Glyph="&#xE7E8;">
+                <ToggleSwitch x:Name="StartupToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Start minimized" Description="Don’t show the window on launch." Glyph="&#xE921;">
+                <ToggleSwitch x:Name="MinimizedToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Minimize to tray" Description="Closing the window keeps Astra running in the notification area." Glyph="&#xE8A7;">
+                <ToggleSwitch x:Name="TrayToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Data" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="App data folder" x:Name="DataCard" Glyph="&#xE8B7;">
+                <Button Content="Open folder" Click="OpenData_Click" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Reset all settings" Description="Restore every option to its default. Saved API keys are kept." Glyph="&#xE777;">
+                <Button Content="Reset…" Click="Reset_Click" />
+            </ctl:SettingsCard>
+
+            <TextBlock Text="About" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Astra" x:Name="AboutCard" Glyph="&#xE946;" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

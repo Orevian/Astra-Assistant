@@ -1,0 +1,59 @@
+<Page
+    x:Class="Astra.App.Pages.IndexPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="using:Astra.App.Controls">
+    <ScrollViewer>
+        <StackPanel Spacing="4" Padding="36,4,36,36" MaxWidth="940" HorizontalAlignment="Stretch">
+            <TextBlock x:Name="PageTitle" Text="Computer index" Style="{StaticResource PageTitleStyle}" />
+            <TextBlock x:Name="PageSubtitle" Text="A local search index of your apps and files, so Astra finds things instantly without sending your computer to an AI model."
+                       Style="{StaticResource PageSubtitleStyle}" />
+
+            <!-- First-run style welcome -->
+            <Border x:Name="WelcomeCard" Visibility="Collapsed" Padding="22" CornerRadius="10" Margin="0,4,0,8"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Astra needs to learn about your computer." Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <TextBlock TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Text="You can scan your Windows installation so Astra can find applications, files and folders quickly. Only names, types, sizes and dates are indexed, and the index never leaves this PC." />
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="Status" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard x:Name="StatusCard" Header="Index status" Glyph="&#xEDA2;">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button x:Name="CancelBtn" Content="Cancel" Click="Cancel_Click" Visibility="Collapsed" />
+                    <Button x:Name="ScanBtn" Content="Scan Windows" Style="{StaticResource AccentButtonStyle}" Click="Scan_Click" />
+                </StackPanel>
+            </ctl:SettingsCard>
+
+            <Border x:Name="ProgressCard" Visibility="Collapsed" Padding="18,14,18,14" CornerRadius="{ThemeResource ControlCornerRadius}"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                <StackPanel Spacing="10">
+                    <TextBlock x:Name="ScanHeader" Text="Scanning Windows…" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                    <StackPanel x:Name="PhaseRows" Spacing="8" />
+                    <TextBlock x:Name="BuildingText" Text="Building search index…" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Visibility="Collapsed" />
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="Options" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Keep the index up to date" Description="Watch for new, renamed and deleted files and for installed or removed apps. No full rescans." Glyph="&#xE895;">
+                <ToggleSwitch x:Name="WatchToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Index file metadata" Description="Names, types, sizes and dates only. File contents are never read unless a task needs them. Turn off to index apps and folders only." Glyph="&#xE8A5;">
+                <ToggleSwitch x:Name="MetaToggle" OnContent="" OffContent="" MinWidth="0" />
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Excluded folders" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Folders Astra never indexes" Description="Anything inside these folders is invisible to search. Applies on the next scan." Glyph="&#xE8F4;">
+                <Button Content="Add folder…" Click="AddFolder_Click" />
+            </ctl:SettingsCard>
+            <StackPanel x:Name="ExcludedList" Spacing="4" />
+
+            <TextBlock x:Name="DataGroup" Text="Data" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard x:Name="ClearCard" Header="Delete the index" Description="Removes the local index. Astra can’t find apps and files until you scan again." Glyph="&#xE74D;">
+                <Button Content="Delete…" Click="Clear_Click" />
+            </ctl:SettingsCard>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
