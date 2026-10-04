@@ -1,0 +1,53 @@
+<Page
+    x:Class="Astra.App.Pages.AiPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="using:Astra.App.Controls">
+    <ScrollViewer>
+        <StackPanel Spacing="4" Padding="36,4,36,36" MaxWidth="940" HorizontalAlignment="Stretch">
+            <TextBlock Text="AI model" Style="{StaticResource PageTitleStyle}" />
+            <TextBlock Text="Pick the model Astra uses for reasoning and planning. Simple commands are handled locally without calling it."
+                       Style="{StaticResource PageSubtitleStyle}" />
+
+            <TextBlock Text="Provider" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="AI provider" Description="Cloud providers use their API; Ollama runs models on this PC." Glyph="&#xE774;">
+                <ComboBox x:Name="ProviderBox" Width="260" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard x:Name="EndpointCard" Header="Endpoint" Description="Base URL of the server." Glyph="&#xE71B;">
+                <TextBox x:Name="EndpointBox" Width="320" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard x:Name="KeyCard" Header="API key" Glyph="&#xE192;"
+                              Description="Stored in Windows Credential Manager. Never written to the settings file.">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <PasswordBox x:Name="KeyBox" Width="260" />
+                    <Button x:Name="SaveKeyBtn" Content="Save" Click="SaveKey_Click" />
+                    <Button x:Name="RemoveKeyBtn" Content="Remove" Click="RemoveKey_Click" />
+                </StackPanel>
+            </ctl:SettingsCard>
+
+            <TextBlock Text="Model" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Chat model" Description="Pick from the list or type any model name your provider supports." Glyph="&#xE9D9;">
+                <ComboBox x:Name="ModelBox" Width="300" IsEditable="True" PlaceholderText="Select or type a model" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard Header="Test connection" Description="Contacts the provider and loads the models available to your account." Glyph="&#xE895;">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <ProgressRing x:Name="Ring" Width="20" Height="20" IsActive="False" />
+                    <Button x:Name="TestBtn" Content="Test connection" Style="{StaticResource AccentButtonStyle}" Click="Test_Click" />
+                </StackPanel>
+            </ctl:SettingsCard>
+            <InfoBar x:Name="ResultBar" IsOpen="False" IsClosable="False" Margin="0,4,0,0" />
+
+            <TextBlock Text="Vision" Style="{StaticResource GroupTitleStyle}" />
+            <ctl:SettingsCard Header="Vision provider" Description="Used for screen analysis such as “click the red button”." Glyph="&#xE7B3;">
+                <ComboBox x:Name="VisionBox" Width="260" />
+            </ctl:SettingsCard>
+            <ctl:SettingsCard x:Name="VisionModelCard" Header="Vision model" Description="Model used for screen analysis. Leave empty for a sensible default." Glyph="&#xE7B3;">
+                <TextBox x:Name="VisionModelBox" Width="300" PlaceholderText="Automatic" />
+            </ctl:SettingsCard>
+
+            <InfoBar Margin="0,20,0,0" IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="What the model sees"
+                     Message="Only your request and the minimal result of each scoped tool call are sent. Your app list, file tree and system details stay on this PC." />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

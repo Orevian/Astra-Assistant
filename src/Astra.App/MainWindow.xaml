@@ -1,0 +1,48 @@
+<Window
+    x:Class="Astra.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Astra">
+    <Grid x:Name="RootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="TitleBarGrid" Padding="14,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition x:Name="RightInsetColumn" Width="0" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center" Width="230">
+                <Grid x:Name="LogoHost" Width="22" Height="22" />
+                <TextBlock Text="Astra" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+            </StackPanel>
+            <AutoSuggestBox x:Name="SearchBox" Grid.Column="1" PlaceholderText="Search settings"
+                            QueryIcon="Find" MaxWidth="420" VerticalAlignment="Center"
+                            TextChanged="SearchBox_TextChanged" QuerySubmitted="SearchBox_QuerySubmitted"
+                            SuggestionChosen="SearchBox_SuggestionChosen" />
+        </Grid>
+
+        <NavigationView x:Name="Nav" Grid.Row="1"
+                        PaneDisplayMode="Left" OpenPaneLength="250"
+                        IsBackButtonVisible="Collapsed" IsSettingsVisible="False"
+                        SelectionChanged="Nav_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Home" Tag="home" Icon="Home" />
+                <NavigationViewItemHeader Content="Settings" />
+                <NavigationViewItem Content="General" Tag="general"><NavigationViewItem.Icon><FontIcon Glyph="&#xE713;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="AI model" Tag="ai"><NavigationViewItem.Icon><FontIcon Glyph="&#xE945;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Voice" Tag="voice"><NavigationViewItem.Icon><FontIcon Glyph="&#xE720;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Appearance" Tag="appearance"><NavigationViewItem.Icon><FontIcon Glyph="&#xE771;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Automation" Tag="automation"><NavigationViewItem.Icon><FontIcon Glyph="&#xE7FC;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Security" Tag="security"><NavigationViewItem.Icon><FontIcon Glyph="&#xE72E;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Computer index" Tag="index"><NavigationViewItem.Icon><FontIcon Glyph="&#xEDA2;" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Memory" Tag="memory"><NavigationViewItem.Icon><FontIcon Glyph="&#xE9D9;" /></NavigationViewItem.Icon></NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame" />
+        </NavigationView>
+        <Grid x:Name="OnboardingHost" Grid.Row="1" Visibility="Collapsed" />
+    </Grid>
+</Window>
