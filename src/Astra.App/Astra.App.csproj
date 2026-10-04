@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>Astra.App</RootNamespace>
+    <AssemblyName>Astra</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <!-- Put your icon.ico in any of these places: src\Astra.App\, src\Astra.App\Assets\, or the solution folder.
+       It becomes the exe, window, tray and overlay icon. -->
+  <PropertyGroup>
+    <AstraIcon Condition="Exists('icon.ico')">icon.ico</AstraIcon>
+    <AstraIcon Condition="'$(AstraIcon)' == '' And Exists('Assets\icon.ico')">Assets\icon.ico</AstraIcon>
+    <AstraIcon Condition="'$(AstraIcon)' == '' And Exists('..\..\icon.ico')">..\..\icon.ico</AstraIcon>
+    <AstraIcon Condition="'$(AstraIcon)' == '' And Exists('..\..\Assets\icon.ico')">..\..\Assets\icon.ico</AstraIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(AstraIcon)' != ''">
+    <ApplicationIcon>$(AstraIcon)</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(AstraIcon)' != ''">
+    <Content Include="$(AstraIcon)" CopyToOutputDirectory="PreserveNewest" Link="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.*" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Astra.Core\Astra.Core.csproj" />
+  </ItemGroup>
+</Project>
