@@ -26,21 +26,21 @@ It opens the browser, finds the video, opens it, and confirms the page actually 
 
 ## ✨ Highlights
 
-- 🎙️ **Truly hands-free.** Say the wake word ("Astra"), hold a push-to-talk hotkey, or just type. Speech recognition runs **locally** with Whisper (GPU-accelerated), so your voice never leaves your PC.
-- 🌍 **Speaks your language.** Understands Turkish and English, replies in the language you spoke, and switches TTS voice to match.
-- ⚡ **Simple things are instant.** *"Open Chrome"* is resolved on your machine in about half a second, **without calling any AI model**. The LLM only wakes up for ambiguous, multi-step, or visual tasks.
-- 🧠 **The model never sees your whole PC.** Astra keeps a local index (SQLite + FTS5) of apps, games, browsers, files and folders. The AI asks small scoped questions (`search_applications`, `search_files`…) and gets back only the few rows it needs. Nothing is bulk-uploaded.
-- 🛡️ **You stay in control.** Seven permission categories (ask / allow / deny). Destructive actions *always* ask: *"Astra wants to delete 147 files."* Deletes go to the Recycle Bin, and system folders are protected.
-- 👁️ **Can see the screen.** "Click the red button" → screenshot → vision model → click → verify the screen changed.
-- 🔌 **Bring your own AI.** OpenAI, Google Gemini, Anthropic, Mistral, DeepSeek, **Ollama (fully local)** and any OpenAI-compatible API. API keys live in **Windows Credential Manager**, never in a config file.
-- 🧩 **35+ tools:** launch/close apps, windows, mouse & keyboard, Windows UI Automation, clipboard, files (bulk move/delete), shell commands, browser control (including reading, clicking and typing in pages), screen analysis, long-term memory.
-- 🎨 **A UI that feels like Windows 11.** Mica, Fluent, 7 themes, your own `icon.ico`, plus optional overlays:
+-  **Truly hands-free.** Say the wake word ("Astra"), hold a push-to-talk hotkey, or just type. Speech recognition runs **locally** with Whisper (GPU-accelerated), so your voice never leaves your PC.
+-  **Speaks your language.** Understands Turkish and English, replies in the language you spoke, and switches TTS voice to match.
+-  **Simple things are instant.** *"Open Chrome"* is resolved on your machine in about half a second, **without calling any AI model**. The LLM only wakes up for ambiguous, multi-step, or visual tasks.
+-  **The model never sees your whole PC.** Astra keeps a local index (SQLite + FTS5) of apps, games, browsers, files and folders. The AI asks small scoped questions (`search_applications`, `search_files`…) and gets back only the few rows it needs. Nothing is bulk-uploaded.
+-  **You stay in control.** Seven permission categories (ask / allow / deny). Destructive actions *always* ask: *"Astra wants to delete 147 files."* Deletes go to the Recycle Bin, and system folders are protected.
+-  **Can see the screen.** "Click the red button" → screenshot → vision model → click → verify the screen changed.
+-  **Bring your own AI.** OpenAI, Google Gemini, Anthropic, Mistral, DeepSeek, **Ollama (fully local)** and any OpenAI-compatible API. API keys live in **Windows Credential Manager**, never in a config file.
+-  **35+ tools:** launch/close apps, windows, mouse & keyboard, Windows UI Automation, clipboard, files (bulk move/delete), shell commands, browser control (including reading, clicking and typing in pages), screen analysis, long-term memory.
+-  **A UI that feels like Windows 11.** Mica, Fluent, 7 themes, your own `icon.ico`, plus optional overlays:
   - **HUD:** what Astra hears, thinks and is doing right now
   - **AI cursor** with six states (idle, listening, thinking, executing, speaking, error)
   - **Speech bubble** (off by default)
   - **Audio visualizer**, six styles, top-right, reacts to Astra's voice in real time (off by default)
   - **Multi-monitor:** pick which display shows the HUD and notifications (default: primary)
-- 🧰 **Tray, first-run wizard, Start with Windows, full Turkish/English interface.**
+-  **Tray, first-run wizard, Start with Windows, full Turkish/English interface.**
 
 ## 🚀 Get started
 
@@ -110,21 +110,21 @@ Tarayıcıyı açar, videoyu bulur, açar ve sayfanın gerçekten değiştiğini
 
 ## ✨ Öne çıkanlar
 
-- 🎙️ **Gerçekten eller serbest.** Uyandırma kelimesini söyle ("Astra"), bas-konuş tuşunu basılı tut veya yaz. Konuşma tanıma **bilgisayarında** Whisper ile çalışır (GPU destekli); sesin PC'nden çıkmaz.
-- 🌍 **Senin dilini konuşur.** Türkçe ve İngilizceyi anlar, konuştuğun dilde yanıt verir, TTS sesini de buna göre değiştirir.
-- ⚡ **Basit işler anında.** *"Chrome'u aç"* gibi komutlar **hiçbir yapay zekâ modeli çağrılmadan** yaklaşık yarım saniyede çözülür. LLM yalnızca belirsiz, çok adımlı veya görsel işlerde devreye girer.
-- 🧠 **Model tüm bilgisayarını görmez.** Astra uygulamalar, oyunlar, tarayıcılar, dosyalar ve klasörler için yerel bir dizin tutar (SQLite + FTS5). Yapay zekâ küçük, kapsamlı sorular sorar (`search_applications`, `search_files`…) ve yalnızca ihtiyacı olan birkaç satırı alır. Hiçbir şey toplu gönderilmez.
-- 🛡️ **Kontrol sende.** Yedi izin kategorisi (sor / izin ver / reddet). Yıkıcı işlemler *her zaman* sorar: *"Astra 147 dosyayı silmek istiyor."* Silinenler Geri Dönüşüm Kutusu'na gider, sistem klasörleri korunur.
-- 👁️ **Ekranı görebilir.** "Kırmızı butona tıkla" → ekran görüntüsü → görüntü modeli → tıkla → ekranın değiştiğini doğrula.
-- 🔌 **İstediğin yapay zekâyı kullan.** OpenAI, Google Gemini, Anthropic, Mistral, DeepSeek, **Ollama (tamamen yerel)** ve OpenAI uyumlu her API. API anahtarların ayar dosyasında değil, **Windows Kimlik Bilgisi Yöneticisi**'nde durur.
+-  **Gerçekten eller serbest.** Uyandırma kelimesini söyle ("Astra"), bas-konuş tuşunu basılı tut veya yaz. Konuşma tanıma **bilgisayarında** Whisper ile çalışır (GPU destekli); sesin PC'nden çıkmaz.
+-  **Senin dilini konuşur.** Türkçe ve İngilizceyi anlar, konuştuğun dilde yanıt verir, TTS sesini de buna göre değiştirir.
+-  **Basit işler anında.** *"Chrome'u aç"* gibi komutlar **hiçbir yapay zekâ modeli çağrılmadan** yaklaşık yarım saniyede çözülür. LLM yalnızca belirsiz, çok adımlı veya görsel işlerde devreye girer.
+-  **Model tüm bilgisayarını görmez.** Astra uygulamalar, oyunlar, tarayıcılar, dosyalar ve klasörler için yerel bir dizin tutar (SQLite + FTS5). Yapay zekâ küçük, kapsamlı sorular sorar (`search_applications`, `search_files`…) ve yalnızca ihtiyacı olan birkaç satırı alır. Hiçbir şey toplu gönderilmez.
+-  **Kontrol sende.** Yedi izin kategorisi (sor / izin ver / reddet). Yıkıcı işlemler *her zaman* sorar: *"Astra 147 dosyayı silmek istiyor."* Silinenler Geri Dönüşüm Kutusu'na gider, sistem klasörleri korunur.
+-  **Ekranı görebilir.** "Kırmızı butona tıkla" → ekran görüntüsü → görüntü modeli → tıkla → ekranın değiştiğini doğrula.
+-  **İstediğin yapay zekâyı kullan.** OpenAI, Google Gemini, Anthropic, Mistral, DeepSeek, **Ollama (tamamen yerel)** ve OpenAI uyumlu her API. API anahtarların ayar dosyasında değil, **Windows Kimlik Bilgisi Yöneticisi**'nde durur.
 - 🧩 **35+ araç:** uygulama aç/kapat, pencereler, fare ve klavye, Windows UI Automation, pano, dosyalar (toplu taşıma/silme), komut çalıştırma, tarayıcı kontrolü (sayfa okuma, tıklama, yazma dahil), ekran analizi, uzun süreli bellek.
-- 🎨 **Windows 11 hissi veren arayüz.** Mica, Fluent, 7 tema, kendi `icon.ico` dosyan ve isteğe bağlı katmanlar:
+-  **Windows 11 hissi veren arayüz.** Mica, Fluent, 7 tema, kendi `icon.ico` dosyan ve isteğe bağlı katmanlar:
   - **HUD:** Astra'nın ne duyduğu, ne düşündüğü ve şu an ne yaptığı
   - Altı durumlu **AI imleci** (boşta, dinliyor, düşünüyor, yürütüyor, konuşuyor, hata)
   - **Konuşma balonu** (varsayılan kapalı)
   - **Ses görselleştirici:** altı stil, sağ üstte, Astra'nın sesine göre gerçek zamanlı hareket eder (varsayılan kapalı)
   - **Çoklu monitör:** HUD ve bildirimlerin hangi ekranda görüneceğini seç (varsayılan: ana ekran)
-- 🧰 **Sistem tepsisi, ilk açılış sihirbazı, Windows ile başlatma, tamamen Türkçe/İngilizce arayüz.**
+-  **Sistem tepsisi, ilk açılış sihirbazı, Windows ile başlatma, tamamen Türkçe/İngilizce arayüz.**
 
 ## 🚀 Başlarken
 
